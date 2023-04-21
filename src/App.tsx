@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import reactLogo from './assets/react.svg';
-import viteLogo from '../../../../../../vite.svg';
+import viteLogo from '../public/vite.svg';
 import './App.css';
+import NotImplemented from './pages/NotImplemented';
+import NotFound from './pages/NotFound';
+import Track from './pages/Track';
+import Dashboard from './pages/Dashboard';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export function App() {
   return (
     <>
       <div>
@@ -16,12 +18,17 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+
       <h1>MinhasHoras.app</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Navigate to="/track" />} />
+        <Route index path="/track" element={<Track />} />
+        <Route index path="/dashboard" element={<Dashboard />} />
+        <Route path="/not-implemented" element={<NotImplemented />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
       <p className="read-the-docs">
         Here, coming soon, the MyHours application.
       </p>
@@ -29,4 +36,10 @@ function App() {
   );
 }
 
-export default App;
+export function WrappedApp() {
+  return (
+    <HashRouter>
+      <App />
+    </HashRouter>
+  );
+}
