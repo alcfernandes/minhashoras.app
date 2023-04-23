@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { Text } from '@mantine/core';
 
 export default function MainLayout() {
   return (
@@ -12,6 +13,7 @@ export default function MainLayout() {
       <p className="read-the-docs">
         Here, coming soon, the MyHours application.
       </p>
+      <Text>Welcome to Mantine!</Text>
       <div>
         <Outlet />
       </div>
