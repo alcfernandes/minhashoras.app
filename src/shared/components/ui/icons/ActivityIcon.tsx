@@ -1,6 +1,5 @@
-import React from "react";
-import {BarsOutlined} from "@ant-design/icons";
+import { BarsOutlined } from '@ant-design/icons';
 
-export function ActivityIcon(){
-    return (<BarsOutlined/>)
+export function ActivityIcon() {
+  return <BarsOutlined />;
 }

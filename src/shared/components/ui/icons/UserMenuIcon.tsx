@@ -1,6 +1,5 @@
-import React from "react";
-import {UserOutlined} from "@ant-design/icons";
+import { UserOutlined } from '@ant-design/icons';
 
-export function UserMenuIcon(){
-    return (<UserOutlined/>)
+export function UserMenuIcon() {
+  return <UserOutlined />;
 }

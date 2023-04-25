@@ -1,6 +1,5 @@
-import React from "react";
-import {DashboardOutlined} from "@ant-design/icons";
+import { DashboardOutlined } from '@ant-design/icons';
 
-export function DashboardIcon(){
-    return (<DashboardOutlined/>)
+export function DashboardIcon() {
+  return <DashboardOutlined />;
 }

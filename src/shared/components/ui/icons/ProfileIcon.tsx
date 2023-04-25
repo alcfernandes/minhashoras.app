@@ -1,6 +1,5 @@
-import React from "react";
-import {ProfileOutlined} from "@ant-design/icons";
+import { ProfileOutlined } from '@ant-design/icons';
 
-export function ProfileIcon(){
-    return (<ProfileOutlined/>)
+export function ProfileIcon() {
+  return <ProfileOutlined />;
 }
