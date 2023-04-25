@@ -4,11 +4,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { App, WrappedApp } from './App';
 
 describe('App', () => {
-  it('renders app tittle', () => {
+  it('renders app logo', () => {
     render(<WrappedApp />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'MinhasHoras.app'
-    );
+    expect(screen.getByAltText('logo')).toBeInTheDocument();
   });
 
   it('Renders not found if invalid path', () => {

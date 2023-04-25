@@ -1,13 +1,22 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { Layout } from 'antd';
+import SideMenu from './SideMenu';
+import AppLogo from './AppLogo';
 
 function SideBar() {
+  const { Sider } = Layout;
   return (
-    <>
-      <h2>SideBar</h2>
-      <NavLink to="/track">Track</NavLink>
-      <span> | </span>
-      <NavLink to="/dashboard">Dashboard</NavLink>
-    </>
+    <Sider
+      className="app-side-bar"
+      breakpoint="sm"
+      // TODO Transfer the setMenuCollapsed method to AppContext
+      // onBreakpoint={(broken) => {
+      //   setMenuCollapsed(broken);
+      // }}
+    >
+      <AppLogo />
+      <SideMenu />
+    </Sider>
   );
 }
 

@@ -1,0 +1,19 @@
+.logo {
+    height: 50px;
+    margin: 16px;
+}
+
+.app-side-bar {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.app-version {
+    color: grey;
+    text-align: center;
+    margin: 16px;
+}

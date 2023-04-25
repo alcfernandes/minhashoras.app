@@ -1,5 +1,7 @@
+import GenericPage from '../shared/components/GenericPage';
+
 function Track() {
-  return <h2>Track Page</h2>;
+  return <GenericPage title="Track Page" />;
 }
 
 export default Track;

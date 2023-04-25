@@ -1,5 +1,7 @@
+import GenericPage from '../shared/components/GenericPage';
+
 function Dashboard() {
-  return <h2>Dashboard Page</h2>;
+  return <GenericPage title="Dashboard Page" />;
 }
 
 export default Dashboard;

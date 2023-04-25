@@ -1,12 +1,7 @@
-import { Link } from 'react-router-dom';
+import GenericPage from '../shared/components/GenericPage';
 
 function NotImplemented() {
-  return (
-    <>
-      <h2>Not Implemented</h2>
-      <Link to="/">GO HOME</Link>
-    </>
-  );
+  return <GenericPage title="Not Implemented Page" />;
 }
 
 export default NotImplemented;

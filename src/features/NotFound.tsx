@@ -1,12 +1,7 @@
-import { Link } from 'react-router-dom';
+import GenericPage from '../shared/components/GenericPage';
 
 function NotFound() {
-  return (
-    <>
-      <h2>Not Found</h2>
-      <Link to="/">GO HOME</Link>
-    </>
-  );
+  return <GenericPage title="Not Found" />;
 }
 
 export default NotFound;

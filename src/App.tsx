@@ -1,5 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ConfigProvider, theme } from 'antd';
+import 'antd/dist/reset.css';
 import NotImplemented from './features/NotImplemented';
 import NotFound from './features/NotFound';
 import Track from './features/Track';
@@ -23,7 +25,13 @@ export function App() {
 export function WrappedApp() {
   return (
     <HashRouter>
-      <App />
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+        }}
+      >
+        <App />
+      </ConfigProvider>
     </HashRouter>
   );
 }
