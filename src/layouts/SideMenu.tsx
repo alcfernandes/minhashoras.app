@@ -13,7 +13,7 @@ import {
   TimeSheetIcon,
   TrackIcon,
   UserMenuIcon,
-} from '../shared/components/ui/icons';
+} from '../shared/components/app-icons';
 
 function SideMenu() {
   const items = [

@@ -4,7 +4,7 @@ import logo from '../assets/images/logo_transparent_background.png';
 function AppLogo() {
   return (
     <div className="logo">
-      <Image width={170} src={logo} alt="logo" />
+      <Image width={170} src={logo} alt="logo" preview={false} />
     </div>
   );
 }
