@@ -13,15 +13,5 @@ export default function MainLayout() {
         </Content>
       </Layout>
     </Layout>
-    // <>
-    //   <h1>MinhasHoras.app</h1>
-    //   <SideBar />
-    //   <p className="read-the-docs">
-    //     Here, coming soon, the MyHours application.
-    //   </p>
-    //   <div>
-    //     <Outlet />
-    //   </div>
-    // </>
   );
 }

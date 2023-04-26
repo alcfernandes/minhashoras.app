@@ -17,19 +17,27 @@ import {
 
 function SideMenu() {
   const items = [
-    { key: '/track', icon: <TrackIcon />, label: 'Horas diárias' },
-    { key: '/projects', icon: <ProjectsIcon />, label: 'Projetos' },
+    { key: '/track', icon: <TrackIcon />, label: 'Track' },
+    { key: '/projects', icon: <ProjectsIcon />, label: 'Projects' },
     {
       key: 'reports-menu',
       icon: <ReportsMenuIcon />,
-      label: 'Relatórios',
+      label: 'Reports',
       children: [
-        { key: '/dashboard', icon: <DashboardIcon />, label: 'Dashboard' },
-        { key: '/activity', icon: <ActivityIcon />, label: 'Atividades' },
-        { key: '/timesheet', icon: <TimeSheetIcon />, label: 'Semana' },
+        {
+          key: '/reports/dashboard',
+          icon: <DashboardIcon />,
+          label: 'Dashboard',
+        },
+        { key: '/reports/detailed', icon: <ActivityIcon />, label: 'Detailed' },
+        {
+          key: '/reports/timesheet',
+          icon: <TimeSheetIcon />,
+          label: 'Timesheet',
+        },
       ],
     },
-    { key: '/clients', icon: <ClientsIcon />, label: 'Clientes' },
+    { key: '/clients', icon: <ClientsIcon />, label: 'Clients' },
     {
       key: 'user-menu',
       icon: <UserMenuIcon />,
@@ -38,10 +46,10 @@ function SideMenu() {
         {
           key: '/account-admin',
           icon: <AccountAdminIcon />,
-          label: 'Administração',
+          label: 'Settings',
         },
-        { key: '/profile', icon: <ProfileIcon />, label: 'Perfil' },
-        { key: 'logout', icon: <LogoutIcon />, label: 'Sair' },
+        { key: '/profile', icon: <ProfileIcon />, label: 'Profile' },
+        { key: 'logout', icon: <LogoutIcon />, label: 'Sign out' },
       ],
     },
   ];
