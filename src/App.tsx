@@ -14,6 +14,7 @@ export function WrappedApp() {
       <ConfigProvider
         theme={{
           algorithm: theme.darkAlgorithm,
+          // algorithm: theme.defaultAlgorithm,
         }}
       >
         <App />
