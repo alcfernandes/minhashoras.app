@@ -14,8 +14,11 @@ import {
   TrackIcon,
   UserMenuIcon,
 } from '../shared/components/app-icons';
+import { useAuth } from '../features/auth';
 
 function SideMenu() {
+  const { setAuth } = useAuth();
+
   const items = [
     { key: '/track', icon: <TrackIcon />, label: 'Track' },
     { key: '/projects', icon: <ProjectsIcon />, label: 'Projects' },
@@ -49,20 +52,23 @@ function SideMenu() {
           label: 'Settings',
         },
         { key: '/profile', icon: <ProfileIcon />, label: 'Profile' },
-        { key: '/auth/login', icon: <LogoutIcon />, label: 'Sign out' },
+        { key: '/sign-out', icon: <LogoutIcon />, label: 'Sign out' },
       ],
     },
   ];
   const navigate = useNavigate();
 
+  const signOut = () => {
+    setAuth({ email: '', password: '', accessToken: '', refreshToken: '' });
+  };
   return (
     <Menu
       theme="dark"
       mode="inline"
       items={items}
       onClick={({ key }) => {
-        if (key === 'logout') {
-          //    TODO implement logout feature here.
+        if (key === '/sign-out') {
+          signOut();
         } else {
           navigate(key);
         }

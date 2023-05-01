@@ -1,12 +1,12 @@
 import { Button, Card, Form, Image, Input, message, Typography } from 'antd';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import logo from '../../../assets/images/logo_transparent_background.png';
 
-import { AuthContext } from '../stores/AuthProvider';
 import { minhasHorasApi } from '../../../shared/services/minhashoras-api';
+import { useAuth } from '../hooks/useAuth';
 
 interface ILoginData {
   email: string;
@@ -16,7 +16,7 @@ interface ILoginData {
 const { Title } = Typography;
 
 export function Login() {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const [form] = Form.useForm();
