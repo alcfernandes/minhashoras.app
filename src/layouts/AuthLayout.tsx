@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 
 export function AuthLayout() {
   const { Content } = Layout;
+
   return (
     <Layout style={{ height: '100vh' }}>
       <Layout>

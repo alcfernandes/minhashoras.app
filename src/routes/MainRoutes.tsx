@@ -4,7 +4,7 @@ import Track from '../features/Track';
 import Dashboard from '../features/Dashboard';
 import NotImplemented from '../features/NotImplemented';
 import NotFound from '../features/NotFound';
-import { Login } from '../features';
+import { Login } from '../features/auth';
 
 export function MainRoutes() {
   return (

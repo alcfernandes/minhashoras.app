@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { AuthLayout } from '../layouts';
-import { Login } from '../features';
+import { Login } from '../features/auth';
 
 export function AuthRoutes() {
   return (

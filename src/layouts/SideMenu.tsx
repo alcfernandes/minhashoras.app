@@ -49,7 +49,7 @@ function SideMenu() {
           label: 'Settings',
         },
         { key: '/profile', icon: <ProfileIcon />, label: 'Profile' },
-        { key: 'logout', icon: <LogoutIcon />, label: 'Sign out' },
+        { key: '/auth/login', icon: <LogoutIcon />, label: 'Sign out' },
       ],
     },
   ];
