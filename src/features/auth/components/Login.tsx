@@ -1,7 +1,7 @@
 import { Button, Card, Form, Image, Input, message, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import logo from '../../../assets/images/logo_transparent_background.png';
 
@@ -19,6 +19,9 @@ export function Login() {
   const { setAuth } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
@@ -57,7 +60,7 @@ export function Login() {
         accessToken,
         refreshToken,
       });
-      navigate('/track');
+      navigate(from, { replace: true });
     } catch (error) {
       const apiError = error as AxiosError;
       if (!apiError?.response) {
