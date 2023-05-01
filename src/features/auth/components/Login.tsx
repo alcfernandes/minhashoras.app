@@ -1,5 +1,5 @@
 import { Button, Card, Form, Image, Input, message, Typography } from 'antd';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
@@ -19,6 +19,13 @@ export function Login() {
   const { setAuth } = useContext(AuthContext);
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
+  const [form] = Form.useForm();
+  const [, forceUpdate] = useState({});
+
+  // To disable submit button at the beginning.
+  useEffect(() => {
+    forceUpdate({});
+  }, []);
 
   const messageError = (messageText: string) => {
     messageApi.open({
@@ -100,6 +107,7 @@ export function Login() {
           onFinishFailed={onSubmitFailed}
           autoComplete="off"
           layout="vertical"
+          form={form}
         >
           <Form.Item
             label="EMAIL"
@@ -124,10 +132,20 @@ export function Login() {
             <Input.Password />
           </Form.Item>
 
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Sign In
-            </Button>
+          <Form.Item shouldUpdate>
+            {() => (
+              <Button
+                type="primary"
+                htmlType="submit"
+                disabled={
+                  !form.isFieldsTouched(true) ||
+                  !!form.getFieldsError().filter(({ errors }) => errors.length)
+                    .length
+                }
+              >
+                Sign In
+              </Button>
+            )}
           </Form.Item>
         </Form>
       </Card>
