@@ -9,12 +9,14 @@ function SideBar() {
   const { Sider } = Layout;
   const [menuCollapsed, setMenuCollapsed] = useState(false);
   return (
+    // TODO Implement a button on pages title bar to show sidebar when it is collapsed
     <Sider
       className="app-side-bar"
       breakpoint="sm"
       onBreakpoint={(broken) => {
         setMenuCollapsed(broken);
       }}
+      // collapsedWidth={0} // Hide sidebar when collapsed
     >
       <AppLogo />
       <SideMenu />
