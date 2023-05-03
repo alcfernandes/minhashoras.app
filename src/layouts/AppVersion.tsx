@@ -1,10 +1,12 @@
+import { useApiVersion, useAppVersion } from '../shared/hooks';
+
 interface AppVersionProps {
   menuCollapsed: boolean;
 }
 
 function AppVersion({ menuCollapsed }: AppVersionProps) {
-  const appVersion = '1.0.0';
-  const apiVersion = '1.0.0';
+  const { apiVersion } = useApiVersion();
+  const { appVersion } = useAppVersion();
   if (menuCollapsed) {
     return (
       <div className="app-version">
