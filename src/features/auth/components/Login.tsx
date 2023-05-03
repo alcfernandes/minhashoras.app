@@ -1,12 +1,9 @@
 import { Button, Card, Form, Image, Input, message, Typography } from 'antd';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AxiosError } from 'axios';
 import logo from '../../../assets/images/logo_transparent_background.png';
-
-import { minhasHorasApi } from '../../../shared/services/minhashoras-api';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth, useLogin } from '../hooks';
 
 interface ILoginData {
   email: string;
@@ -17,6 +14,8 @@ const { Title } = Typography;
 
 export function Login() {
   const { setAuth } = useAuth();
+  const { login, error } = useLogin();
+
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,48 +29,32 @@ export function Login() {
     forceUpdate({});
   }, []);
 
-  const messageError = (messageText: string) => {
-    messageApi.open({
-      type: 'error',
-      content: messageText,
-    });
-  };
-  const onSubmit = async (loginData: ILoginData) => {
-    try {
-      const response = await minhasHorasApi.post(
-        '/token/',
-        JSON.stringify({
-          email: loginData.email,
-          password: loginData.password,
-        }),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        }
-      );
-      // console.log(JSON.stringify(response?.data));
-      // console.log(JSON.stringify(response));
+  const messageError = useCallback(
+    (messageText: string) => {
+      messageApi.open({
+        type: 'error',
+        content: messageText,
+      });
+    },
+    [messageApi]
+  );
 
-      const accessToken = response?.data?.access;
-      const refreshToken = response?.data?.refresh;
+  useEffect(() => {
+    if (error) {
+      messageError(error);
+    }
+  }, [error, messageError]);
+
+  const onSubmit = async (loginData: ILoginData) => {
+    const tokens = await login(loginData);
+    if (tokens) {
       setAuth({
         email: loginData.email,
         password: loginData.password,
-        accessToken,
-        refreshToken,
+        accessToken: tokens.accessToken,
+        refreshToken: tokens.refreshToken,
       });
       navigate(from, { replace: true });
-    } catch (error) {
-      const apiError = error as AxiosError;
-      if (!apiError?.response) {
-        messageError('No server response.');
-      } else if (apiError?.response?.status === 401) {
-        messageError('Invalid credentials');
-      } else if (apiError?.response?.status === 404) {
-        messageError('Unauthorized');
-      } else {
-        messageError('Unexpected error');
-      }
     }
   };
 
