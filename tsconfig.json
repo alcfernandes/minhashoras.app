@@ -19,7 +19,17 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* import shortcuts */
+    "baseUrl": "./",
+    "paths": {
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ]
+    }
   },
   "include": [
     "vite.config.ts",
@@ -32,4 +42,3 @@
     }
   ]
 }
-
