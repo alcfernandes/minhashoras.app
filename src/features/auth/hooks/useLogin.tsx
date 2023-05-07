@@ -17,7 +17,7 @@ export const useLogin = () => {
 
     try {
       const response = await minhasHorasApi.post(
-        '/token/',
+        '/auth/token/',
         JSON.stringify({
           email: loginData.email,
           password: loginData.password,
