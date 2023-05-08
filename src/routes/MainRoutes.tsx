@@ -1,10 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Track from '@features/Track';
+import Dashboard from '@features/Dashboard';
+import NotImplemented from '@features/NotImplemented';
+import NotFound from '@features/NotFound';
+import { Login } from '@features/auth';
+import { Profile } from '@features/profile';
 import { AuthLayout, MainLayout } from '../layouts';
-import Track from '../features/Track';
-import Dashboard from '../features/Dashboard';
-import NotImplemented from '../features/NotImplemented';
-import NotFound from '../features/NotFound';
-import { Login } from '../features/auth';
 import RequireAuth from './RequireAuth';
 
 export function MainRoutes() {
@@ -17,6 +18,7 @@ export function MainRoutes() {
         <Route element={<RequireAuth />}>
           <Route path="/" element={<Navigate to="/track" />} />
           <Route path="/track" element={<Track />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/reports/dashboard" element={<Dashboard />} />
           <Route path="/not-implemented" element={<NotImplemented />} />
         </Route>
