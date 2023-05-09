@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useAuth, useRefreshToken } from '@features/auth/hooks';
 import { minhasHorasApiPrivate } from '@shared/services/minhashoras-api';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const useMinhasHorasApiPrivate = () => {
   const refresh = useRefreshToken();
   const { auth } = useAuth();
+  const navigation = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const requestIntercept = minhasHorasApiPrivate.interceptors.request.use(
@@ -25,9 +28,16 @@ export const useMinhasHorasApiPrivate = () => {
         const prevRequest = error?.config;
         if (error?.response?.status === 401 && !prevRequest?.sent) {
           prevRequest.sent = true;
-          const newAccessToken = await refresh();
-          prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-          return minhasHorasApiPrivate(prevRequest);
+          try {
+            const newAccessToken = await refresh();
+            if (newAccessToken) {
+              prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+              return await minhasHorasApiPrivate(prevRequest);
+            }
+            navigation('/auth/login', { state: { from: location } });
+          } catch (err) {
+            navigation('/auth/login', { state: { from: location } });
+          }
         }
         return Promise.reject(error);
       }
@@ -37,7 +47,7 @@ export const useMinhasHorasApiPrivate = () => {
       minhasHorasApiPrivate.interceptors.request.eject(requestIntercept);
       minhasHorasApiPrivate.interceptors.response.eject(responseIntercept);
     };
-  }, [auth, refresh]);
+  }, [auth, refresh, location, navigation]);
 
   return minhasHorasApiPrivate;
 };
