@@ -11,3 +11,5 @@ export const minhasHorasApiPrivate = axios.create({
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
 });
+
+export * from './urls';

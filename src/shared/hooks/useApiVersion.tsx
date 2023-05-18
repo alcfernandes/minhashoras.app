@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
-import { minhasHorasApiPublic } from '../services/minhashoras-api';
+import { minhasHorasApiPublic, VERSION_URL } from '../services/minhashoras-api';
 
 export const useApiVersion = () => {
   const [apiVersion, setApiVersion] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const url = '/version';
-
   useEffect(() => {
     setLoading(true);
     minhasHorasApiPublic
-      .get(url)
+      .get(VERSION_URL)
       .then((response) => {
         setApiVersion(response.data?.api_version);
       })
@@ -21,12 +19,12 @@ export const useApiVersion = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [url]);
+  }, []);
 
   const refetch = () => {
     setLoading(true);
     minhasHorasApiPublic
-      .get(url)
+      .get(VERSION_URL)
       .then((response) => {
         setApiVersion(response.data?.api_version);
       })

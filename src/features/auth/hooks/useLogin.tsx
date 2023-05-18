@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { AxiosError } from 'axios';
-import { minhasHorasApiPublic } from '@shared/services/minhashoras-api';
+import {
+  minhasHorasApiPublic,
+  TOKEN_URL,
+} from '@shared/services/minhashoras-api';
 
 interface ILoginData {
   email: string;
@@ -17,7 +20,7 @@ export const useLogin = () => {
 
     try {
       const response = await minhasHorasApiPublic.post(
-        '/auth/token/',
+        TOKEN_URL,
         JSON.stringify({
           email: loginData.email,
           password: loginData.password,
