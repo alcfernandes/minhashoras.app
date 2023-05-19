@@ -1,5 +1,4 @@
 import { LogoutOutlined } from '@ant-design/icons';
 
-export function LogoutIcon() {
-  return <LogoutOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const LogoutIcon = <LogoutOutlined />;

@@ -1,5 +1,4 @@
 import { CalendarOutlined } from '@ant-design/icons';
 
-export function TimeSheetIcon() {
-  return <CalendarOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const TimeSheetIcon = <CalendarOutlined />;

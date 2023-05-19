@@ -1,5 +1,4 @@
 import { FieldTimeOutlined } from '@ant-design/icons';
 
-export function TrackIcon() {
-  return <FieldTimeOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const TrackIcon = <FieldTimeOutlined />;

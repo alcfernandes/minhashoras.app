@@ -1,5 +1,4 @@
 import { DashboardOutlined } from '@ant-design/icons';
 
-export function DashboardIcon() {
-  return <DashboardOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const DashboardIcon = <DashboardOutlined />;

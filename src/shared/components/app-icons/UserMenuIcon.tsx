@@ -1,5 +1,4 @@
 import { UserOutlined } from '@ant-design/icons';
 
-export function UserMenuIcon() {
-  return <UserOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const UserMenuIcon = <UserOutlined />;

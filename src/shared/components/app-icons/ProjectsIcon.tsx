@@ -1,5 +1,4 @@
 import { GoldOutlined } from '@ant-design/icons';
 
-export function ProjectsIcon() {
-  return <GoldOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const ProjectsIcon = <GoldOutlined />;

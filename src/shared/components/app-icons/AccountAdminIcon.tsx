@@ -1,5 +1,4 @@
 import { SettingOutlined } from '@ant-design/icons';
 
-export function AccountAdminIcon() {
-  return <SettingOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const AccountAdminIcon = <SettingOutlined />;

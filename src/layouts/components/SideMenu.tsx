@@ -20,39 +20,39 @@ function SideMenu() {
   const { logout } = useAuth();
 
   const items = [
-    { key: '/track', icon: <TrackIcon />, label: 'Track' },
-    { key: '/projects', icon: <ProjectsIcon />, label: 'Projects' },
+    { key: '/track', icon: TrackIcon, label: 'Track' },
+    { key: '/projects', icon: ProjectsIcon, label: 'Projects' },
     {
       key: 'reports-menu',
-      icon: <ReportsMenuIcon />,
+      icon: ReportsMenuIcon,
       label: 'Reports',
       children: [
         {
           key: '/reports/dashboard',
-          icon: <DashboardIcon />,
+          icon: DashboardIcon,
           label: 'Dashboard',
         },
-        { key: '/reports/detailed', icon: <ActivityIcon />, label: 'Detailed' },
+        { key: '/reports/detailed', icon: ActivityIcon, label: 'Detailed' },
         {
           key: '/reports/timesheet',
-          icon: <TimeSheetIcon />,
+          icon: TimeSheetIcon,
           label: 'Timesheet',
         },
       ],
     },
-    { key: '/clients', icon: <ClientsIcon />, label: 'Clients' },
+    { key: '/clients', icon: ClientsIcon, label: 'Clients' },
     {
       key: 'user-menu',
-      icon: <UserMenuIcon />,
+      icon: UserMenuIcon,
       label: 'Alessandro',
       children: [
         {
           key: '/account-admin',
-          icon: <AccountAdminIcon />,
+          icon: AccountAdminIcon,
           label: 'Settings',
         },
-        { key: '/profile', icon: <ProfileIcon />, label: 'Profile' },
-        { key: '/sign-out', icon: <LogoutIcon />, label: 'Sign out' },
+        { key: '/profile', icon: ProfileIcon, label: 'Profile' },
+        { key: '/sign-out', icon: LogoutIcon, label: 'Sign out' },
       ],
     },
   ];

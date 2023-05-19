@@ -1,5 +1,4 @@
 import { BarsOutlined } from '@ant-design/icons';
 
-export function ActivityIcon() {
-  return <BarsOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const ActivityIcon = <BarsOutlined />;

@@ -1,5 +1,4 @@
 import { ProfileOutlined } from '@ant-design/icons';
 
-export function ProfileIcon() {
-  return <ProfileOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const ProfileIcon = <ProfileOutlined />;

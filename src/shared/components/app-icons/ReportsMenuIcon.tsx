@@ -1,5 +1,4 @@
 import { BarChartOutlined } from '@ant-design/icons';
 
-export function ReportsMenuIcon() {
-  return <BarChartOutlined />;
-}
+// Exporting as a constant to avoid creating new instances on every use.
+export const ReportsMenuIcon = <BarChartOutlined />;
