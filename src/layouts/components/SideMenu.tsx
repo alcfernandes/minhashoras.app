@@ -17,7 +17,7 @@ import {
 import { useAuth } from '@features/auth';
 
 function SideMenu() {
-  const { setAuth } = useAuth();
+  const { logout } = useAuth();
 
   const items = [
     { key: '/track', icon: <TrackIcon />, label: 'Track' },
@@ -58,9 +58,6 @@ function SideMenu() {
   ];
   const navigate = useNavigate();
 
-  const signOut = () => {
-    setAuth({ email: '', password: '', accessToken: '', refreshToken: '' });
-  };
   return (
     <Menu
       theme="dark"
@@ -68,7 +65,7 @@ function SideMenu() {
       items={items}
       onClick={({ key }) => {
         if (key === '/sign-out') {
-          signOut();
+          logout();
         } else {
           navigate(key);
         }
