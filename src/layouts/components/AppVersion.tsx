@@ -1,4 +1,4 @@
-import { useApiVersion, useAppVersion } from '../shared/hooks';
+import { useApiVersion, useAppVersion } from '@shared/hooks';
 
 interface AppVersionProps {
   menuCollapsed: boolean;

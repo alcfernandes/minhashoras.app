@@ -1,5 +1,5 @@
 import { Image } from 'antd';
-import logo from '../assets/images/logo_transparent_background.png';
+import logo from '@assets/images/logo_transparent_background.png';
 
 function AppLogo() {
   return (

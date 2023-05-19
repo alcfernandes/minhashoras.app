@@ -13,8 +13,8 @@ import {
   TimeSheetIcon,
   TrackIcon,
   UserMenuIcon,
-} from '../shared/components/app-icons';
-import { useAuth } from '../features/auth';
+} from '@shared/components/app-icons';
+import { useAuth } from '@features/auth';
 
 function SideMenu() {
   const { setAuth } = useAuth();
