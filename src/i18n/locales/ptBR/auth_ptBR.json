@@ -1,0 +1,11 @@
+{
+  "formValidationError": "Falha na validação do formulário.",
+  "enterValidEmail": "Digite um e-mail válido.",
+  "enterPassword": "Digite a sua senha.",
+  "signIn": "Entrar",
+  "password": "SENHA",
+  "noServerResponse": "Sem resposta do servidor.",
+  "invalidCredentials": "Credenciais inválidas.",
+  "unauthorized": "Não autorizado.",
+  "unexpectedError": "Erro inesperado."
+}

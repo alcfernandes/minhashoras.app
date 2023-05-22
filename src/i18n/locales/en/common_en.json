@@ -1,0 +1,12 @@
+{
+  "track": "Track",
+  "projects": "Projects",
+  "reports": "Reports",
+  "dashboard": "Dashboard",
+  "detailed_report": "Detailed",
+  "timesheet_report": "Timesheet",
+  "clients": "Clients",
+  "settings": "Settings",
+  "profile": "Profile",
+  "signOut": "Sign out"
+}

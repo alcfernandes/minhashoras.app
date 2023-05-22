@@ -2,6 +2,7 @@ import { Button, Card, Form, Image, Input, message, Typography } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logo from '../../../assets/images/logo_transparent_background.png';
 import { useAuth, useLogin } from '../hooks';
 
@@ -13,6 +14,8 @@ interface ILoginData {
 const { Title } = Typography;
 
 export function Login() {
+  const { t } = useTranslation();
+
   const { setAuth } = useAuth();
   const { login, error } = useLogin();
 
@@ -62,7 +65,7 @@ export function Login() {
     console.log('Failed:', errorInfo);
     messageApi.open({
       type: 'error',
-      content: 'Form validation failed.',
+      content: t('auth:formValidationError'),
     });
   };
 
@@ -83,7 +86,7 @@ export function Login() {
           <Image width={170} src={logo} alt="logo" preview={false} />
         </div>
         <Title type="secondary" level={3} style={{ textAlign: 'left' }}>
-          Sign In{' '}
+          {t('auth:signIn')}
         </Title>
         <Form
           name="basic"
@@ -103,7 +106,7 @@ export function Login() {
               {
                 type: 'email',
                 required: true,
-                message: 'Please enter a valid email.',
+                message: t('auth:enterValidEmail').toString(),
               },
             ]}
           >
@@ -111,9 +114,11 @@ export function Login() {
           </Form.Item>
 
           <Form.Item
-            label="PASSWORD"
+            label={t('auth:password')}
             name="password"
-            rules={[{ required: true, message: 'Please enter your password.' }]}
+            rules={[
+              { required: true, message: t('auth:enterPassword').toString() },
+            ]}
           >
             <Input.Password />
           </Form.Item>
@@ -129,7 +134,7 @@ export function Login() {
                     .length
                 }
               >
-                Sign In
+                {t('auth:signIn')}
               </Button>
             )}
           </Form.Item>

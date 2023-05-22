@@ -4,6 +4,7 @@ import {
   minhasHorasApiPublic,
   TOKEN_URL,
 } from '@shared/services/minhashoras-api';
+import { useTranslation } from 'react-i18next';
 
 interface ILoginData {
   email: string;
@@ -11,6 +12,8 @@ interface ILoginData {
 }
 
 export const useLogin = () => {
+  const { t } = useTranslation();
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,13 +41,13 @@ export const useLogin = () => {
     } catch (_error) {
       const apiError = _error as AxiosError;
       if (!apiError?.response) {
-        setError('No server response.');
+        setError(t('auth:noServerResponse'));
       } else if (apiError?.response?.status === 401) {
-        setError('Invalid credentials');
+        setError(t('auth:invalidCredentials'));
       } else if (apiError?.response?.status === 404) {
-        setError('Unauthorized');
+        setError(t('auth:unauthorized'));
       } else {
-        setError('Unexpected error');
+        setError(t('auth:unexpectedError'));
       }
 
       return null;

@@ -2,11 +2,12 @@ import { useNavigate } from 'react-router-dom';
 
 import { Menu } from 'antd';
 import { useAuth } from '@features/auth';
-import { menuItems } from './menu-itens';
+import { useMenuItems } from '@layouts/hooks/useMenuItens';
 
 function SideMenu() {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const menuItems = useMenuItems();
 
   const handleMenuClick = ({ key }: { key: string }) => {
     if (key === '/sign-out') {

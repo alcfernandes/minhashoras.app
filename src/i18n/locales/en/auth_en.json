@@ -1,0 +1,11 @@
+{
+  "formValidationError": "Form validation failed.",
+  "enterValidEmail": "Please enter a valid email address.",
+  "enterPassword": "Please enter your password.",
+  "signIn": "Sign In",
+  "password": "PASSWORD",
+  "noServerResponse": "No server response.",
+  "invalidCredentials": "Invalid credentials.",
+  "unauthorized": "Unauthorized.",
+  "unexpectedError": "Unexpected error."
+}

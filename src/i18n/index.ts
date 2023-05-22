@@ -1,9 +1,15 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
+import common_en from './locales/en/common_en.json';
+import common_ptBR from './locales/ptBR/common_ptBR.json';
+import auth_en from './locales/en/auth_en.json';
+import auth_ptBR from './locales/ptBR/auth_ptBR.json';
 
-import enJson from './translations/en.json';
-import ptBRJson from './translations/ptBR.json';
+const resources = {
+  en: { common: common_en, auth: auth_en },
+  'pt-BR': { common: common_ptBR, auth: auth_ptBR },
+};
 
 i18n
   .use(LanguageDetector)
@@ -14,10 +20,8 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    resources: {
-      en: enJson,
-      'pt-BR': ptBRJson,
-    },
+    resources,
+    defaultNS: 'common',
   });
 
 export default i18n;
