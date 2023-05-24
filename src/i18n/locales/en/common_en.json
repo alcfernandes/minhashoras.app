@@ -8,5 +8,6 @@
   "clients": "Clients",
   "settings": "Settings",
   "profile": "Profile",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+  "archived": "Archived"
 }
