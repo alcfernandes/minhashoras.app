@@ -7,8 +7,18 @@ export function MainLayout() {
   return (
     <Layout hasSider>
       <SideBar />
-      <Layout className="site-layout" style={{ marginLeft: 15 }}>
-        <Content style={{ margin: '15px 0 0', overflow: 'initial' }}>
+      <Layout
+        className="site-layout"
+        style={{ marginLeft: 15, position: 'relative' }}
+      >
+        <Content
+          style={{
+            margin: '15px 0 0',
+            overflow: 'auto',
+            height: '95vh',
+            position: 'sticky',
+          }}
+        >
           <Outlet />
         </Content>
       </Layout>
