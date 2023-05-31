@@ -6,15 +6,16 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 
-import { useQuery } from '@tanstack/react-query';
-import { useClientsApi } from '../hooks/useClientsApi';
+import { IClientList } from '@features/clients/types';
 
-export function ClientList() {
+interface IClientListProps {
+  data: IClientList[] | undefined;
+}
+
+export function ClientList({ data }: IClientListProps) {
   const { t } = useTranslation();
   const { Meta } = Card;
   const { Paragraph, Text } = Typography;
-  const { getClients } = useClientsApi();
-  const { data } = useQuery(['client-list'], getClients);
 
   return (
     <Space size={[16, 16]} wrap>

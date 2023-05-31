@@ -9,5 +9,7 @@
   "settings": "Configurações",
   "profile": "Perfil",
   "signOut": "Sair",
-  "archived": "Arquivado"
+  "archived": "Arquivado",
+  "showArchived": "Exibir arquivados",
+  "hideArchived": "Ocultar arquivados"
 }

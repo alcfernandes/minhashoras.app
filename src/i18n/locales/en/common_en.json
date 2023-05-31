@@ -9,5 +9,7 @@
   "settings": "Settings",
   "profile": "Profile",
   "signOut": "Sign out",
-  "archived": "Archived"
+  "archived": "Archived",
+  "showArchived": "Show archived",
+  "hideArchived": "Hide archived"
 }

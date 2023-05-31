@@ -1,15 +1,22 @@
 import { useMinhasHorasApiPrivate } from '@shared/hooks';
 import { CLIENTS_URL } from '@shared/services/minhashoras-api';
-import { IClientList } from '@features/clients/types/clients-types';
+import { IClientList, IClientsFilter } from '@features/clients/types';
 
 export const useClientsApi = () => {
   const minhasHorasApiPrivate = useMinhasHorasApiPrivate();
 
-  async function getClients(): Promise<IClientList[]> {
+  async function getClients(
+    filter: IClientsFilter = {}
+  ): Promise<IClientList[]> {
+    const { showArchived } = filter;
     const response = await minhasHorasApiPrivate.get<IClientList[]>(
-      CLIENTS_URL
+      CLIENTS_URL,
+      {
+        params: {
+          'show-archived': showArchived,
+        },
+      }
     );
-
     return response.data;
   }
 
