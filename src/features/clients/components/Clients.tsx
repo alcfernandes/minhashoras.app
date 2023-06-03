@@ -1,11 +1,6 @@
 import { Space, Typography } from 'antd';
-import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@tanstack/react-query';
-import {
-  ClientsContext,
-  ClientsProvider,
-} from '@features/clients/stores/ClientsProvider';
+import { ClientsProvider } from '@features/clients/stores/ClientsProvider';
 import { ClientList } from './ClientList';
 import { useClientsApi } from '../hooks/useClientsApi';
 import { ClientFilter } from './ClientFilter';
@@ -13,12 +8,7 @@ import { ClientFilter } from './ClientFilter';
 function ClientsContent() {
   const { t } = useTranslation();
   const { Title } = Typography;
-  const { getClients } = useClientsApi();
-  const { filter } = useContext(ClientsContext);
-  const { data } = useQuery(['client-list', filter], () => getClients(filter), {
-    keepPreviousData: true,
-  });
-
+  const { data } = useClientsApi();
   return (
     <Space direction="vertical" size={[0, 10]}>
       <Title level={2}>{t('clients')}</Title>
