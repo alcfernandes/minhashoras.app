@@ -8,19 +8,34 @@ interface IClientsProviderProps {
 
 interface IClientsContext {
   filter: IClientFilter;
-  setFilter: React.Dispatch<React.SetStateAction<IClientFilter>>;
+  setShowArchived: (showArchived: boolean) => void;
+  setSearch: (search: string) => void;
 }
+
+const initialClientFilter: IClientFilter = {
+  showArchived: false,
+  search: '',
+};
 
 export const ClientsContext = createContext<IClientsContext>({
   filter: { showArchived: true },
-  setFilter: () => {},
+  setShowArchived: () => {},
+  setSearch: () => {},
 });
 
 export function ClientsProvider({ children }: IClientsProviderProps) {
-  const [filter, setFilter] = useState<IClientFilter>({ showArchived: true });
+  const [filter, setFilter] = useState<IClientFilter>(initialClientFilter);
 
   const contextValue = useMemo(() => {
-    return { filter, setFilter };
+    const setShowArchived = (showArchived: boolean) => {
+      setFilter({ ...filter, showArchived });
+    };
+
+    const setSearch = (search: string) => {
+      setFilter({ ...filter, search });
+    };
+
+    return { filter, setShowArchived, setSearch };
   }, [filter]);
 
   return (

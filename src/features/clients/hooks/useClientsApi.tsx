@@ -8,12 +8,13 @@ export const useClientsApi = () => {
   async function getClients(
     filter: IClientFilter = {}
   ): Promise<IClientList[]> {
-    const { showArchived } = filter;
+    const { showArchived, search } = filter;
     const response = await minhasHorasApiPrivate.get<IClientList[]>(
       CLIENTS_URL,
       {
         params: {
           'show-archived': showArchived,
+          search,
         },
       }
     );
