@@ -12,7 +12,7 @@ import { ClientFilter } from './ClientFilter';
 
 function ClientsContent() {
   const { t } = useTranslation();
-  const { Title, Text } = Typography;
+  const { Title } = Typography;
   const { getClients } = useClientsApi();
   const { filter } = useContext(ClientsContext);
   const { data } = useQuery(['client-list', filter], () => getClients(filter), {
@@ -21,8 +21,7 @@ function ClientsContent() {
 
   return (
     <Space direction="vertical" size={[0, 10]}>
-      <Text>Filtro: {JSON.stringify(filter)}</Text>
-      <Title level={2}>{t('clients')}</Title>;
+      <Title level={2}>{t('clients')}</Title>
       <ClientFilter />
       <ClientList data={data} />
     </Space>
