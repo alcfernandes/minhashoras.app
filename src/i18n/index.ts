@@ -2,9 +2,9 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import common_en from './locales/en/common_en.json';
-import common_ptBR from './locales/ptBR/common_ptBR.json';
+import common_ptBR from './locales/pt-br/common_ptBR.json';
 import auth_en from './locales/en/auth_en.json';
-import auth_ptBR from './locales/ptBR/auth_ptBR.json';
+import auth_ptBR from './locales/pt-br/auth_ptBR.json';
 
 const resources = {
   en: { common: common_en, auth: auth_en },
