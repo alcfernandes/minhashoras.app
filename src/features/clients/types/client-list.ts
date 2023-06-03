@@ -6,7 +6,3 @@ export interface IClientList {
   is_active?: boolean;
   uuid: string;
 }
-
-export interface IClientsFilter {
-  showArchived?: boolean;
-}

@@ -1,13 +1,14 @@
 import React, { createContext, useMemo, useState } from 'react';
-import { IClientsFilter } from '@features/clients/types';
+
+import { IClientFilter } from '@features/clients/types';
 
 interface IClientsProviderProps {
   children: React.ReactNode;
 }
 
 interface IClientsContext {
-  filter: IClientsFilter;
-  setFilter: React.Dispatch<React.SetStateAction<IClientsFilter>>;
+  filter: IClientFilter;
+  setFilter: React.Dispatch<React.SetStateAction<IClientFilter>>;
 }
 
 export const ClientsContext = createContext<IClientsContext>({
@@ -16,7 +17,7 @@ export const ClientsContext = createContext<IClientsContext>({
 });
 
 export function ClientsProvider({ children }: IClientsProviderProps) {
-  const [filter, setFilter] = useState<IClientsFilter>({ showArchived: true });
+  const [filter, setFilter] = useState<IClientFilter>({ showArchived: true });
 
   const contextValue = useMemo(() => {
     return { filter, setFilter };
