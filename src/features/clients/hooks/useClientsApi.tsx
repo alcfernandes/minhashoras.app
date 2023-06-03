@@ -1,30 +1,33 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useMinhasHorasApiPrivate } from '@shared/hooks';
 import { CLIENTS_URL } from '@shared/services/minhashoras-api';
 import { useContext } from 'react';
 import { ClientsContext } from '@features/clients/stores/ClientsProvider';
 import { IClientList } from '@features/clients/types';
 
-export const useClientsApi = () => {
+export const useClientsApi = (): UseQueryResult<IClientList[], Error> => {
   const minhasHorasApiPrivate = useMinhasHorasApiPrivate();
   const { filter } = useContext(ClientsContext);
 
   async function getClients(): Promise<IClientList[]> {
-    const { showArchived, search } = filter;
-    const response = await minhasHorasApiPrivate.get<IClientList[]>(
-      CLIENTS_URL,
-      {
-        params: {
-          'show-archived': showArchived,
-          search,
-        },
-      }
-    );
-    return response.data;
+    try {
+      const { showArchived, search } = filter;
+      const response = await minhasHorasApiPrivate.get<IClientList[]>(
+        CLIENTS_URL,
+        {
+          params: {
+            'show-archived': showArchived,
+            search,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(String(error));
+    }
   }
 
-  const { data } = useQuery(['client-list', filter], () => getClients(), {
+  return useQuery(['client-list', filter], getClients, {
     keepPreviousData: true,
   });
-  return { data };
 };
